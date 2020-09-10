@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
     const ipaddress = ip.split(":")
     
     res.send({
-        ip_address: ipaddress[2]
+        ip_address: ipaddress[3]
     })
 })
 
