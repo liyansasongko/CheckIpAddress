@@ -11,9 +11,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(requestIp.mw())
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     const ip = req.clientIp
-    res.end(ip)
+
+    const ipaddress = ip.split(":")
+    
+    res.send({
+        ip_address: ipaddress[2]
+    })
 })
 
 app.listen(PORT, () => {
